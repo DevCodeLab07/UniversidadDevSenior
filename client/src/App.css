@@ -1,0 +1,268 @@
+/* ==========================================================================
+   Variables y Tipografía Profesional
+   ========================================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  --bg-main: #F4F6F9;
+  --bg-card: #FFFFFF;
+  --text-primary: #1A1A1A;
+  --text-muted: #757575;
+  --text-labels: #8E8E8E;
+  
+  --border-color: #E2E8F0;
+  --border-input: #CBD5E1;
+  
+  --btn-main: #1456D3;
+  --btn-main-hover: #0E42A5;
+  
+  --btn-edit-text: #059669;
+  --btn-edit-bg: #D1FAE5;
+  --btn-edit-border: #A7F3D0;
+  
+  --btn-delete-text: #DC2626;
+  --btn-delete-bg: #FEE2E2;
+  --btn-delete-border: #FECACA;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+body {
+  background-color: var(--bg-main);
+  color: var(--text-primary);
+  padding: 40px 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.app-container {
+  width: 100%;
+  max-width: 1100px;
+}
+
+/* ==========================================================================
+   Encabezados
+   ========================================================================== */
+.header {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.header h1 {
+  font-size: 26px;
+  font-weight: 700;
+  color: #000000;
+  margin-bottom: 8px;
+}
+
+.header p {
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+/* ==========================================================================
+   Contenedor del Formulario (Con la barra superior de colores)
+   ========================================================================== */
+.form-container {
+  background-color: var(--bg-card);
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+  padding: 32px;
+  margin-bottom: 40px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Efecto de línea de colores en la parte superior del formulario */
+.form-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, #1456D3 0%, #10B981 33%, #F59E0B 66%, #EC4899 100%);
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px 32px;
+  margin-bottom: 30px;
+}
+
+.campo {
+  display: flex;
+  flex-direction: column;
+}
+
+.campo label {
+  font-size: 11px;
+  color: var(--text-labels);
+  margin-bottom: 8px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.campo input,
+.campo select {
+  padding: 12px 14px;
+  border: 1px solid var(--border-input);
+  border-radius: 6px;
+  background-color: var(--bg-card);
+  color: var(--text-primary);
+  font-size: 14px;
+  transition: all 0.2s ease;
+}
+
+.campo input:focus,
+.campo select:focus {
+  outline: none;
+  border-color: var(--btn-main);
+  box-shadow: 0 0 0 3px rgba(20, 86, 211, 0.15);
+}
+
+/* ==========================================================================
+   Botón Principal (Guardar / Actualizar)
+   ========================================================================== */
+.acciones-form {
+  display: flex;
+  gap: 12px;
+}
+
+.btn-submit {
+  flex: 1;
+  background-color: var(--btn-main);
+  color: #FFFFFF;
+  border: none;
+  padding: 14px;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(20, 86, 211, 0.25);
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.btn-submit:hover {
+  background-color: var(--btn-main-hover);
+}
+
+.btn-submit:active {
+  transform: translateY(2px);
+  box-shadow: 0 2px 4px rgba(20, 86, 211, 0.2);
+}
+
+.btn-cancel {
+  background-color: #F3F4F6;
+  color: #374151;
+  border: 1px solid #D1D5DB;
+  padding: 14px 24px;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-cancel:hover {
+  background-color: #E5E7EB;
+}
+
+/* ==========================================================================
+   Tabla de Registros
+   ========================================================================== */
+.table-wrapper {
+  background-color: var(--bg-card);
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+  overflow-x: auto;
+  padding: 24px 0;
+}
+
+.tabla-docentes {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.tabla-docentes th {
+  color: var(--text-labels);
+  font-size: 11px;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  padding: 16px 24px;
+  border-bottom: 2px solid var(--border-color);
+}
+
+.tabla-docentes td {
+  padding: 16px 24px;
+  font-size: 14px;
+  color: var(--text-primary);
+  border-bottom: 1px solid var(--border-color);
+  vertical-align: middle;
+}
+
+/* Efecto de negrita solicitado para los nombres en la primera columna */
+.col-nombre {
+  font-weight: 600;
+  color: #000000;
+}
+
+.tabla-docentes tr {
+  transition: background-color 0.1s ease;
+}
+
+.tabla-docentes tr:hover {
+  background-color: #F8FAFC;
+}
+
+/* ==========================================================================
+   Botones de Acción en Tabla (Efecto Píldora)
+   ========================================================================== */
+.action-buttons {
+  display: flex;
+  gap: 12px;
+}
+
+.btn-action {
+  padding: 6px 16px;
+  border-radius: 20px; /* Forma de píldora */
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-action:active {
+  transform: scale(0.95);
+}
+
+/* Efecto Editar (Verde claro con borde) */
+.btn-edit {
+  color: var(--btn-edit-text);
+  background-color: var(--btn-edit-bg);
+  border: 1px solid var(--btn-edit-border);
+}
+
+.btn-edit:hover {
+  background-color: #A7F3D0;
+}
+
+/* Efecto Eliminar (Rojo claro con borde) */
+.btn-delete {
+  color: var(--btn-delete-text);
+  background-color: var(--btn-delete-bg);
+  border: 1px solid var(--btn-delete-border);
+}
+
+.btn-delete:hover {
+  background-color: #FECACA;
+}
